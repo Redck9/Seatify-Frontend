@@ -141,7 +141,7 @@ export default function MyRestaurantsPage() {
         {/* Welcome Section */}
         <div className="text-center">
             <h2 className="text-3xl font-extrabold leading-snug text-center md:text-4xl">
-                All <span className="text-blue-600">Restaurants</span>🍽️  
+                My <span className="text-blue-600">Restaurants</span>🍽️  
             </h2>
         </div>
 
@@ -203,7 +203,8 @@ export default function MyRestaurantsPage() {
             </TableHeader>
             <TableBody>
               {filteredRestaurants.map((r) => (
-                <TableRow key={r.id}>
+                <TableRow key={r.id}
+                  onClick={() => navigate(`/restaurant/${r.uid}`)} className="transition duration-200 cursor-pointer hover:bg-gray-700 ">
                   <TableCell>{r.name}</TableCell>
                   <TableCell>{r.type}</TableCell>
                   <TableCell>{r.location}</TableCell>

@@ -151,7 +151,8 @@ export default function FavoriteRestaurantsPage()
                             </TableHeader>
                             <TableBody>
                                 {favoriteRestaurants.map((r) => (
-                                    <TableRow key={r.id}>
+                                    <TableRow key={r.id}
+                                        onClick={() => navigate(`/restaurant/${r.uid}`)} className="transition duration-200 cursor-pointer hover:bg-gray-700 ">
                                         <TableCell>{r.name}</TableCell>
                                         <TableCell>{r.location}</TableCell>
                                         <TableCell>{r.tablesCapacity}</TableCell>

@@ -10,6 +10,7 @@ import CreateRestaurant from "./pages/restaurants/create-restaurant-page";
 import { Toaster } from "@/app/components/ui/toaster";
 import MyRestaurantsPage from "./pages/restaurants/my-restaurants-page";
 import MyRestaurantWrapper from "./pages/restaurant/my-restaurant-wrapper";
+import RestaurantPage from "./pages/restaurant/restaurant-page";
 
 
 export function App() {
@@ -174,6 +175,17 @@ export function App() {
             </Layout>
           ) : (
             <Navigate to="/" replace />  // Redirect to login if not logged in
+          )}
+        />
+
+        <Route
+          path="/restaurant/:restaurantUid"
+          element={isLoggedIn ? (
+            <Layout>
+              <RestaurantPage />
+            </Layout>
+          ) : (
+            <Navigate to = "/" replace />
           )}
         />
 

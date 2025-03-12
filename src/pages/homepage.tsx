@@ -29,16 +29,6 @@ export default function HomePage()
                     </p>
                 </div>
 
-                {/* Search Bar Section */}
-                <div className="relative w-full max-w-md mt-8">
-                    <Search className="absolute text-gray-500 transform -translate-y-1/2 left-3 top-1/2" size={18} />
-                    <Input
-                        type="text"
-                        placeholder="Search for a restaurant..."
-                        className="py-2 pl-10 pr-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-                </div>
-
                 {/* Cards Section */}
                 <div className="w-full px-4 mt-10 max-w-7xl">
                     <div className="grid justify-center gap-6 auto-rows-min sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">

@@ -222,7 +222,8 @@ export default function AllRestaurantsPage() {
             </TableHeader>
             <TableBody>
               {filteredRestaurants.map((r) => (
-                <TableRow key={r.id}>
+                <TableRow key={r.id}
+                  onClick={() => navigate(`/restaurant/${r.uid}`)} className="transition duration-200 cursor-pointer hover:bg-gray-700 ">
                   <TableCell>{r.name}</TableCell>
                   <TableCell>{r.type}</TableCell>
                   <TableCell>{r.location}</TableCell>
