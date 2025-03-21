@@ -5,6 +5,7 @@ import {jwtDecode} from "jwt-decode";
 export const getAccessToken = async (): Promise<String | null> => {
     let accessToken = localStorage.getItem("accessToken");
     const refreshToken = localStorage.getItem("refreshToken");
+    
 
     // Check if the access token is expired
     if (accessToken) 

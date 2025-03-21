@@ -2,7 +2,13 @@ import { SidebarProvider, SidebarTrigger } from "@/app/components/ui/sidebar"
 import { AppSidebar } from "@/app/components/SideBar/app-sidebar"
 // import { useState } from "react";
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+interface LayoutProps {
+  children: React.ReactNode
+  handleLogout: () => void;
+}
+
+
+export default function Layout({ children, handleLogout }: LayoutProps) {
 
   /* const [isSidebarOpen, setSidebarOpen] = useState(false);
 
@@ -12,7 +18,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   
   return (
     <SidebarProvider>
-      <AppSidebar /* isOpen={isSidebarOpen} onToggle={toggleSidebar} *//>
+      <AppSidebar handleLogout={handleLogout}/* isOpen={isSidebarOpen} onToggle={toggleSidebar} *//>
       {/* <SidebarTrigger
         className={`fixed z-50 transition-all duration-300 ${
           !isSidebarOpen ? "translate-x-64" : ""

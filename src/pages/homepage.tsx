@@ -6,8 +6,7 @@ import {
     CardTitle,
   } from "@/app/components/ui/card"
 
-import { Input } from "@/app/components/ui/input";
-import { Search, Plus, ArrowRightIcon } from "lucide-react";
+import { Plus, ArrowRightIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function HomePage() 

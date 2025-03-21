@@ -11,6 +11,7 @@ import { Toaster } from "@/app/components/ui/toaster";
 import MyRestaurantsPage from "./pages/restaurants/my-restaurants-page";
 import MyRestaurantWrapper from "./pages/restaurant/my-restaurant-wrapper";
 import RestaurantPage from "./pages/restaurant/restaurant-page";
+import EditProfilePage from "./pages/settings-page/edit-profile-page";
 
 
 export function App() {
@@ -45,6 +46,19 @@ export function App() {
   const handleLoginSuccess = () => {
     setIsLoggedIn(true);
     localStorage.setItem("isLoggedIn", "true");
+  };
+
+  // Function to handle logout
+  const handleLogout = () => {
+    // Remove login state from localStorage
+    localStorage.removeItem("accessToken")
+    localStorage.removeItem("isLoggedIn")
+    localStorage.removeItem("refreshToken")
+    localStorage.removeItem("username")
+    sessionStorage.removeItem("userUid")
+
+    // Update state to reflect that the user is logged out
+    setIsLoggedIn(false);
   };
 
     
@@ -88,7 +102,7 @@ export function App() {
         <Route 
           path="/homepage" 
           element={isLoggedIn ? (
-            <Layout>
+            <Layout handleLogout={handleLogout}>
               <HomePage />
             </Layout>
           ) : (
@@ -100,7 +114,7 @@ export function App() {
         <Route 
           path="/page" 
           element={isLoggedIn ? (
-            <Layout>
+            <Layout handleLogout={handleLogout}>
               <Page />
             </Layout>
           ) : (
@@ -112,7 +126,7 @@ export function App() {
          <Route 
           path="/restaurants" 
           element={isLoggedIn ? (
-            <Layout>
+            <Layout handleLogout={handleLogout}>
               <AllRestaurantsPage />
             </Layout>
           ) : (
@@ -124,7 +138,7 @@ export function App() {
         <Route 
           path="/favorite-restaurants" 
           element={isLoggedIn ? (
-            <Layout>
+            <Layout handleLogout={handleLogout}>
               <FavoriteRestaurantsPage />
             </Layout>
           ) : (
@@ -136,7 +150,7 @@ export function App() {
         <Route 
           path="/favorite-restaurants" 
           element={isLoggedIn ? (
-            <Layout>
+            <Layout handleLogout={handleLogout}>
               <FavoriteRestaurantsPage />
             </Layout>
           ) : (
@@ -147,7 +161,7 @@ export function App() {
         <Route 
           path="/create-restaurant" 
           element={isLoggedIn ? (
-            <Layout>
+            <Layout handleLogout={handleLogout}>
               <CreateRestaurant />
             </Layout>
           ) : (
@@ -159,7 +173,7 @@ export function App() {
         <Route 
           path="/my-restaurants" 
           element={isLoggedIn ? (
-            <Layout>
+            <Layout handleLogout={handleLogout}>
               <MyRestaurantsPage />
             </Layout>
           ) : (
@@ -170,7 +184,7 @@ export function App() {
         <Route 
           path="/my-restaurant/:restaurantUid" 
           element={isLoggedIn ? (
-            <Layout>
+            <Layout handleLogout={handleLogout}>
               <MyRestaurantWrapper />
             </Layout>
           ) : (
@@ -181,13 +195,25 @@ export function App() {
         <Route
           path="/restaurant/:restaurantUid"
           element={isLoggedIn ? (
-            <Layout>
+            <Layout handleLogout={handleLogout}>
               <RestaurantPage />
             </Layout>
           ) : (
             <Navigate to = "/" replace />
           )}
         />
+
+        <Route
+          path="/edit/profile"
+          element={isLoggedIn ? (
+            <Layout handleLogout={handleLogout}>
+              <EditProfilePage />
+            </Layout>
+          ) : (
+            <Navigate to = "/" replace />
+          )}
+        />
+
 
       </Routes>
       <Toaster />

@@ -1,5 +1,5 @@
 //import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
-import { Home, Search, Settings, Star, ForkKnife} from "lucide-react"
+import { Home, Search, Settings, Star, ForkKnife, LogOut} from "lucide-react"
 
 import {
   Sidebar,
@@ -11,6 +11,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/app/components/ui/sidebar"
+
+import { useNavigate } from "react-router-dom"
 
 // Menu items.
 const items = [
@@ -46,7 +48,7 @@ const items = [
   },
   {
     title: "Settings",
-    url: "#",
+    url: "/edit/profile",
     icon: Settings,
   },
 ]
@@ -56,7 +58,13 @@ const items = [
   onToggle: () => void;
 } */
 
-export function AppSidebar(/* { isOpen, onToggle }: AppSidebarProps */) {
+interface AppSidebarProps 
+{
+  handleLogout: () => void;
+}
+
+export function AppSidebar({ handleLogout }: AppSidebarProps/* { isOpen, onToggle }: AppSidebarProps */) {
+
   return (
     <Sidebar>
       <SidebarContent>
@@ -74,6 +82,14 @@ export function AppSidebar(/* { isOpen, onToggle }: AppSidebarProps */) {
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
+               <SidebarMenuItem>
+                <SidebarMenuButton asChild onClick={handleLogout}>
+                  <a className="cursor-pointer">
+                    <LogOut />
+                    <span>Logout</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
