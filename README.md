@@ -1,50 +1,47 @@
-# React + TypeScript + Vite
+# 🍽️ Restaurant-frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This is the Frontend of the Restaurant Microservices platform — a responsive, high-performance web interface that allows users to interact with restaurant data in real-time.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Built with React, Vite, TypeScript, and Shadcn UI, it offers a smooth UX for exploring restaurants, managing favorites, building floor plans, and viewing real-time chair occupancy.
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+ - 🔐 User Authentication
+Login system with role-based UI behavior
 
-- Configure the top-level `parserOptions` property like this:
+ - 🏬 Restaurant Management Interface
+Add, browse, and manage restaurant details with ease
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+ - 📐 Floor Plan Builder
+Drag-and-drop layout builder for creating custom restaurant seating arrangements
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+ - ❤️ Favorites & Real-Time Updates
+Favorite restaurants and track chair availability via sensor data
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## ⚙️ Tech Stack
+ - React
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+ - Vite
+
+ - TypeScript
+
+ - Shadcn UI
+
+ - REST API integration with BFF and backend services
+
+## 🚀 Getting Started
+
+### 📦 1. Install Dependencies
+
+From the frontend project root, run:
+
+    npm install
+
+### ▶️ 2. Run the App
+To start the local development server:
+
+    npm run dev
+
+This will launch the app, usually at http://localhost:5173 (or as specified in your Vite config).
